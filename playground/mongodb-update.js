@@ -7,15 +7,18 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err, db)=>{
     }
     console.log('Connected to MongoDB server');
 
-    db.collection('Users').find({
-        name: 'Paul Robinson'     
-    }).toArray()
-        .then( (docs)=>{
-            console.log('Todos');
-            console.log(JSON.stringify(docs, undefined, 2));
-        },(err)=>{
-            console.log('Unable to fetch todos', err);
-        });
+    db.collection('Todos').findOneAndUpdate({
+        _id :new ObjectID('5b9e86d476ad90167e19c15d')
+    },{
+        $set:{
+            text:'Goo balls'
+        }
+    }, {
+        returnOriginal:false
+    })
+    .then((result)=>{
+        console.log(result);
+    })
 
 
     //db.close();
