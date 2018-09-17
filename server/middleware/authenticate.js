@@ -12,8 +12,8 @@ var authenticate = (req, res, next)=>{
             next();
         })
         .catch((err)=>{
-            res.send(401).send();
+            res.sendStatus(401).send();
         })
 }
 
-module.exports = {authenticate};
+module.exports = {authenticate:authenticate};
