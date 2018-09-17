@@ -143,7 +143,7 @@ describe('DELETE /todos:id',()=>{
             .end(done);
     });
 
-    it(' : shoudl return 404 if object id is invalid', (done)=>{
+    it(' : should return 404 if object id is invalid', (done)=>{
         var id = new ObjectID().toHexString();
         request(app)
             .delete(`/todos/4556`)  
